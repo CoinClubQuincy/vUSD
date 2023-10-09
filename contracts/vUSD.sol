@@ -6,9 +6,9 @@ import "./zeppelin/SafeMath.sol";
 
 
 /**
- * @title PYUSDImplementation
+ * @title vUSD Implementation
  * @dev this contract is a Pausable ERC20 token with Burn and Mint
- * controlled by a central SupplyController. By implementing PYUSDImplementation
+ * controlled by a central SupplyController. By implementing vUSD Implementation
  * this contract also includes external methods for setting
  * a new implementation contract for the Proxy.
  * NOTE: The storage defined here will actually be held in the Proxy
@@ -17,7 +17,7 @@ import "./zeppelin/SafeMath.sol";
  * Any call to transfer against this contract should fail
  * with insufficient funds since no tokens will be issued there.
  */
-contract PYUSDImplementation {
+contract vUSD {
 
     /**
      * MATH
@@ -35,9 +35,9 @@ contract PYUSDImplementation {
     // ERC20 BASIC DATA
     mapping(address => uint256) internal balances;
     uint256 internal totalSupply_;
-    string public constant name = "PayPal USD"; // solium-disable-line
-    string public constant symbol = "PYUSD"; // solium-disable-line uppercase
-    uint8 public constant decimals = 6; // solium-disable-line uppercase
+    string public constant name = "Nuclei vUSD"; // solium-disable-line
+    string public constant symbol = "vUSD"; // solium-disable-line uppercase
+    uint8 public constant decimals = 18; // solium-disable-line uppercase
 
     // ERC20 DATA
     mapping(address => mapping(address => uint256)) internal allowed;
@@ -313,7 +313,7 @@ contract PYUSDImplementation {
     // OWNER FUNCTIONALITY
 
     /**
-     * @dev Throws if called by any account other than the owner.
+     * @dev Throws if called by any account other than the Handler.
      */
     modifier onlyOwner() {
         require(msg.sender == owner, "onlyOwner");
@@ -352,11 +352,11 @@ contract PYUSDImplementation {
     }
 
     /**
-     * @dev Reclaim all PYUSD at the contract address.
-     * This sends the PYUSD tokens that this contract add holding to the owner.
+     * @dev Reclaim all vUSD at the contract address.
+     * This sends the vUSD tokens that this contract add holding to the owner.
      * Note: this is not affected by freeze constraints.
      */
-    function reclaimPYUSD() external onlyOwner {
+    function reclaimvUSD() external onlyOwner {
         uint256 _balance = balances[this];
         balances[this] = 0;
         balances[owner] = balances[owner].add(_balance);
