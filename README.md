@@ -1,4 +1,4 @@
-# PayPal USD (PYUSD)
+# Nuclei USD (vUSD)
 
 Paxos-issued USD-collateralized ERC20 stablecoin public smart contract repository.
 
@@ -6,19 +6,19 @@ https://github.com/paxosglobal/pyusd-contract
 
 ## ABI, Address, and Verification
 
-The contract abi is in `PYUSD.abi`. It is the abi of the implementation contract.
-Interaction with PayPal USD is done at the address of the proxy at `0x6c3ea9036406852006290770bedfcaba0e23a0e8`. See
+The contract abi is in `vUSD.abi`. It is the abi of the implementation contract.
+Interaction with Nuclei vUSD is done at the address of the proxy at `0x6c3ea9036406852006290770bedfcaba0e23a0e8`. See
 https://etherscan.io/token/0x6c3ea9036406852006290770bedfcaba0e23a0e8 for live on-chain details, and the section on bytecode verification below.
 Additionally, an independent security audit was conducted by Trail of Bits and the audit report can be found [here](audit-reports/Trail_of_Bits_Audit_Report.pdf), referenced under the original code name Token Hopper/XYZ.
 
 ## Contract Specification
 
-PayPal USD (PYUSD) is an ERC20 token that is Centrally Minted and Burned by Paxos,
+Nuclei USD (vUSD) is an ERC20 token that is Centrally Minted and Burned by Paxos,
 representing the trusted party backing the token with USD.
 
 ### ERC20 Token
 
-The public interface of PayPal USD is the ERC20 interface
+The public interface of Nuclei USD is the ERC20 interface
 specified by [EIP-20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md).
 
 - `name()`
